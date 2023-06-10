@@ -1,0 +1,39 @@
+<div class="container">
+  <h3>Login Form</h3>
+    Enter Name: <input type="text" class="form-control" [(ngModel)]="name"> <br>
+    Enter Age: <input type="text" class="form-control" [(ngModel)]="age"><br>
+    Enter PhoneNumber: <input type="text" class="form-control" [(ngModel)]="phoneno"> <br>
+    Enter DOB: <input type="text" class="form-control" [(ngModel)]="dob"> <br>
+    <input type="button" value="View" class="btn btn-primary" (click)="viewDetails()">{{value}}
+    <app-form [parentData1]="parentData1" [parentData2]="parentData2" [parentData3]="parentData3" [parentData4]="parentData4" (object)="object($event)"></app-form>
+    <br>
+
+<!-- ----------------------------------------------------- -->
+<p>Fill The Form:</p>
+
+<div>
+  
+  Product Id<input type="text" class="form-control" [(ngModel)]="id">
+  Name<input type="text" class="form-control" [(ngModel)]="pname">
+  Description<input type="text" class="form-control" [(ngModel)]="description">
+  <button value="submit" (click)="viewTable()">Submit</button>{{value1}}
+  
+  <app-product [parentId]="parentId" [parentPname]="parentPname" [parentDescription]="parentDescription" (table)="table($event)"></app-product>
+</div>
+
+<!-- ---------------------------------------------------- -->
+
+<h2>Parent Component</h2>
+Press here to increase the value<button (click)="increment()">Increment</button><br>
+
+Press here to decrease the value<button (click)="decrement()">decrement</button>
+
+<app-count [count]="counter"></app-count> 
+<!--pass data from parent to child-->
+
+<!-- ---------------------------------------------------- -->
+
+<ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul>
+<app-list (listdata)="addItem($event)"></app-list>
